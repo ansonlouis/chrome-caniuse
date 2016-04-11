@@ -166,16 +166,22 @@ var settings = (function(){
         return;
       }
 
-      chrome.storage.local.set({'caniuse': caniuse.full}, function(){
+      var updated = Date.now();
+      _settings.lastUpdated = updated;
+      chrome.storage.local.set({'caniuse': caniuse.full, 'updated': updated}, function(){
         console.log("saved caniuse data locally!");
       });
     },
 
     removeDataLocally : function(){
-      console.log("removing:", caniuse);
       chrome.storage.local.remove('caniuse', function(){
+        _settings.lastUpdated = false;
         console.log("removed caniuse data locally!");
       });
+    },
+
+    lastUpdated : function(){
+      return _settings.lastUpdated;
     },
 
     getData : function(){

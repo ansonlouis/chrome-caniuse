@@ -384,3 +384,8 @@ footer {
   box-shadow: 1px 1px 5px #ccc;
   border-radius: 2px;
   margin-bottom: 10px; }
+
+.local-details .last-update {
+  padding: 10px; }
+  .local-details .last-update .date {
+    color: #39b54a; }

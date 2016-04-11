@@ -77,6 +77,9 @@
                 <div class="toggle btn" ng-click="toggleLocal()" ng-class="{enabled : settings.shouldSaveData()}"></div>
                 Save <i>Can I Use</i> data to my local web storage for offline use
               </div>
+              <div class="local-details" ng-if="settings.shouldSaveData()">
+                <div class="last-update">Last updated: <span class="date">{{settings.lastUpdated() | date:'MMM d, y h:mm a'}}</span></div>
+              </div>
             </div>
           </div>
         </div>

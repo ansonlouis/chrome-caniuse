@@ -276,3 +276,14 @@ footer{
   border-radius:2px;
   margin-bottom: 10px;
 }
+
+.local-details{
+
+  .last-update{
+    padding: 10px;
+
+    .date{
+      color: $supportedGreen;
+    }
+  }
+}
