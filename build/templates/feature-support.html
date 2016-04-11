@@ -1,0 +1,54 @@
+<div>
+  <div class="results" ng-if="feature">
+    <h3>
+      <a href="http://caniuse.com/#feat={{feature.data.id}}" target="_blank">{{feature.data.title}}</a>
+      <div class="stats">
+        <div class="global">
+          <span class="full">{{stats.full}}%</span> + <span class="partial">{{stats.partial}}%</span> = <span class="total">{{stats.total}}%</span>
+        </div>
+      </div>
+    </h3>
+    <div class="description" rich-text="{{feature.data.description}}"></div>
+    <div class="support">
+      <div
+      class="browser"
+      ng-repeat="(key, item) in feature.data.stats track by $index"
+      ng-if="caniuse.isNotableBrowser(key)">
+        <h4>{{caniuse.getBrowser(key).data.browser}}</h4>
+        <ul>
+
+          <li class="fake" ng-repeat="item in currentOffset(key) track by $index">hehe</li>
+
+          <li
+          ng-repeat="(idx, status) in item | orderByEra:key track by $index"
+          ng-mouseover="highlight(key, status.version)"
+          ng-mouseout="unhighlight()"
+          ng-class="{supported : status.supported, unsupported : !status.supported, partial : status.partial, prefix : status.prefix, current : caniuse.isCurrentVersion(key, status.version), future : caniuse.isFuture(key, status.version), note : status.notes}">
+            {{status.version}}
+          </li>
+
+        </ul>
+      </div>
+    </div>
+
+    <div class="details">
+      <div class="stats">
+        <div class="version-usage">
+          Version Usage:
+          <span class="total" ng-if="isNumber(hoveredUsage)">{{hoveredUsage.toFixed(2)}}%</span>
+        </div>
+      </div>
+      <ul class="notes">
+        <li ng-repeat="(idx, note) in feature.getNotes() track by $index" ng-class="{active : hoveredNote(idx)}">
+          <span class="num">{{idx}}</span>
+          <span class="note">{{note}}</span>
+        </li>
+      </ul>
+      <div class="with-prefix" ng-class="{active : hoveredStat && hoveredStat.prefix}">- requires prefix</div>
+    </div>
+  </div>
+
+  <div id="no-results" ng-if="searchValue && !feature && features && !features.length">
+    no results for: <i>{{searchValue}}</i>
+  </div>
+</div>

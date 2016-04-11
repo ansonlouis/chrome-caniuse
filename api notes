@@ -1,0 +1,5 @@
+y = yes
+n = no
+a = partial
+x = prefix (y x === yes with prefix, a x === partial with prefix)
+#x = some note number

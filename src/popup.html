@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="CaniuseApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Can I Use?</title>
+
+  <link href="http://fonts.googleapis.com/css?family=Inconsolata|Open+Sans:300,700" rel="stylesheet">
+  <link rel="stylesheet" href="styles/popup.css">
+
+  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="../node_modules/angular/angular.min.js"></script>
+  <script src="../node_modules/underscore/underscore-min.js"></script>
+
+  <script src="js/popup.js"></script>
+  <script src="js/filters.js"></script>
+  <script src="js/components/caniuse.js"></script>
+  <script src="js/components/feature-support.js"></script>
+  <script src="js/components/feature-search.js"></script>
+  <script src="js/components/autocomplete.js"></script>
+  <script src="js/components/rich-text.js"></script>
+
+</head>
+<body>
+  <div id="wrap" ng-controller="caniuseController" search-emitter />
+    <div ng-if="settings.usable">
+      <div id="search-wrap">
+        <auto-complete></auto-complete>
+      </div>
+
+      <feature-support ng-if="result" feature-obj="result"></feature-support>
+
+      <footer>
+        <div class="credit">
+          Powered By <a href="http://caniuse.com" target="_blank">caniuse.com</a>
+        </div>
+        <div class="controls">
+          <a class="settings" href="/build/options.html" target="_blank"></a>
+        </div>
+      </footer>
+    </div>
+    <div id="no-data" ng-if="!settings.usable">
+      Something went wrong: You may not be connected to the internet and do not have the local storage feature set.
+    </div>
+  </div>
+
+</body>
+</html>

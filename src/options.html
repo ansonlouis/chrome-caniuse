@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="CaniuseOptions">
+<head>
+  <base href="/build/"/>
+  <meta charset="UTF-8">
+  <title>Caniuse Options</title>
+
+  <link href="http://fonts.googleapis.com/css?family=Inconsolata|Open+Sans:300,700" rel="stylesheet">
+  <link rel="stylesheet" href="styles/options.css">
+
+  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="../node_modules/angular/angular.min.js"></script>
+  <script src="../node_modules/underscore/underscore-min.js"></script>
+
+  <script src="js/options.js"></script>
+  <script src="js/filters.js"></script>
+  <script src="js/components/feature-support.js"></script>
+  <script src="js/components/feature-search.js"></script>
+  <script src="js/components/rich-text.js"></script>
+
+</head>
+<body class="options-page">
+  <div id="wrap" ng-controller="optionsController" search-emitter />
+
+    <div class="flex-content" ng-if="settings.usable">
+
+      <header>
+        <div class="centerer">
+          Can I Use
+          <input type="text" class="search" ng-keydown="setMode('search')" feature-search />
+          ?
+        </div>
+        <div class="settings-btn btn" ng-class="{transparent : modeIs('settings')}" ng-click="setMode('settings')"></div>
+      </header>
+
+      <section id="middle" class="centerer" ng-if="settings">
+
+        <div class="settings" ng-if="modeIs('settings')">
+          <div class="browser-settings settings-group">
+            <h2>Browser Options <span class="user-note">- current version, plus the next/previous 2 versions will always show</span></h2>
+            <div class="settings-block">
+              <ul class="browser-list">
+                <li ng-repeat="(id, browser) in browsers track by $index" ng-class="{active : isActive(id)}" ng-click="makeActive(browser)">
+                  <div class="toggle btn" ng-click="toggleBrowserState(id)" ng-class="{enabled : settings.browserIsActive(id)}"></div>
+                  <h3>{{browser.data.browser}} - <span class="usage">{{browser.getFullUsage()}}%</span></h3>
+                </li>
+              </ul>
+
+              <div class="version-settings">
+                <div class="none-active" ng-if="!activeBrowser">
+                  Click on a browser to change version settings
+                </div>
+                <ul ng-if="activeBrowser" class="version-list" ng-class="{inactive : !browserSettings || !browserSettings.active}" scroll-watch-ui>
+                  <li
+                  ng-repeat="(id, version) in activeBrowser.getVersions(true) | reverse track by $index"
+                  ng-class="{disabled : activeBrowser.versionIsGreen(version.version)}">
+                    <div
+                    class="toggle btn"
+                    ng-click="toggleVersionState(activeBrowser.data.id, version.version)"
+                    ng-class="{enabled : settings.versionIsExplicit(activeBrowser.data.id, version.version), disabled : activeBrowser.versionIsGreen(version.version)}"></div>
+                    <h3>
+                      {{version.version}} -
+                      <span class="usage">{{version.global_usage.toFixed(2)}}%</span>
+                      <span class="current" ng-if="version.era == 0">current</span>
+                    </h3>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="generic-settings settings-group">
+            <h2>Generic Options</h2>
+            <div class="settings-block">
+              <div class="save-locally">
+                <div class="toggle btn" ng-click="toggleLocal()" ng-class="{enabled : settings.shouldSaveData()}"></div>
+                Save <i>Can I Use</i> data to my local web storage for offline use
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div ng-show="modeIs('search')" ng-repeat="item in searchResults track by $index">
+          <feature-support feature-obj="item"></feature-support>
+        </div>
+
+      </section>
+
+      <footer>
+        <div class="credits">Powered By <a href="http://caniuse.com" target="_blank">caniuse.com</a></div>
+      </footer>
+
+    </div>
+
+    <!-- show when the caniuse data could not be found -->
+    <div id="no-data" class="flex-content" ng-if="!settings.usable">
+      <h2>Something went wrong!</h2>
+      <h4>
+        It looks like you don't have internet connectivity and you have not enabled
+        the offline storage feature.
+      </h4>
+    </div>
+
+  </div>
+
+</body>
+</html>
