@@ -24,10 +24,6 @@ function indexer(config){
   this.valueParsers = {};
   this.MAX_LEVELS = config.maxLevels !== undefined ? config.maxLevels : Number.MAX_SAFE_INTEGER;
 
-  this.blacklist = [
-    "and", "a", "are", "the", "then", "this", "as", "if", "an", "to", "-", "be", "for"
-  ];
-
   this.isExcluded = function(key){
     return this.exclude.indexOf(key) > -1;
   };
@@ -71,7 +67,7 @@ function indexer(config){
 
             _.each(tokens, function(token){
               token = token.trim();
-              if(token && token.length > 1 && this.blacklist.indexOf(token) < 0){
+              if(token && token.length > 1 && STOP_WORDS.indexOf(token) < 0){
                 if(!index[token]){
                   index[token] = {};
                 }
@@ -83,15 +79,6 @@ function indexer(config){
                 index[token][item.id]++;
               }
             }, this);
-            // console.log(tokens);
-            // if(!index[parsedValue]){
-            //   index[parsedValue] = [];
-            // }
-            // var id = k;
-            // if(masterKey !== undefined){
-            //   id = masterKey;
-            // }
-            // index[parsedValue].push(id);
           }
         }
       }, this);
@@ -152,7 +139,6 @@ function indexer(config){
     results = Object.keys(fullMatches).sort(function(a,b){
       return fullMatches[a] - fullMatches[b];
     });
-    results.splice(5);
 
     return results;
   };

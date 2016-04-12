@@ -25,10 +25,10 @@
     <div class="flex-content" ng-if="settings.usable">
 
       <header>
-        <div class="centerer">
-          Can I Use
-          <input type="text" class="search" ng-keydown="setMode('search')" feature-search />
-          ?
+        <div class="header-search">
+          <span>Can I Use</span>
+          <input type="text" class="search" ng-keydown="setMode('search')" ng-focus="setMode('search')" feature-search />
+          <span>?</span>
         </div>
         <div class="settings-btn btn" ng-class="{transparent : modeIs('settings')}" ng-click="setMode('settings')"></div>
       </header>
@@ -37,7 +37,7 @@
 
         <div class="settings" ng-if="modeIs('settings')">
           <div class="browser-settings settings-group">
-            <h2>Browser Options <span class="user-note">- current version, plus the next/previous 2 versions will always show</span></h2>
+            <h2>Browser Options <span class="user-note">current version plus the next and previous 2 versions will always show</span></h2>
             <div class="settings-block">
               <ul class="browser-list">
                 <li ng-repeat="(id, browser) in browsers track by $index" ng-class="{active : isActive(id)}" ng-click="makeActive(browser)" class="browser-list-item">
@@ -79,7 +79,7 @@
                 <div class="toggle btn" ng-click="toggleLocal()" ng-class="{enabled : settings.shouldSaveData()}"></div>
                 <span>Save <i>Can I Use</i> data to my local web storage for offline use</span>
               </div>
-              <div class="local-details" ng-if="settings.shouldSaveData()">
+              <div class="local-details" ng-if="settings.shouldSaveData()" ng-class="{refreshing : refreshingLocalData}">
                 <div class="last-update">Last updated: <span class="date">{{settings.lastUpdated() | date:'MMM d, y h:mm a'}}</span></div>
                 <div class="refresh btn" ng-click="refreshLocalData()" ng-class="{refreshing : refreshingLocalData}"></div>
               </div>
@@ -87,8 +87,17 @@
           </div>
         </div>
 
-        <div ng-show="modeIs('search')" ng-repeat="item in searchResults track by $index">
-          <feature-support feature-obj="item"></feature-support>
+        <div ng-show="modeIs('search')">
+          <div class="result-count" ng-if="searchResults.length > 1">Showing {{searchResults.length}} results of {{searchTotal}}</div>
+          <div ng-repeat="item in searchResults track by $index">
+            <feature-support feature-obj="item"></feature-support>
+          </div>
+          <div class="no-data" ng-if="noResults()">
+            <h2>No results found for <b>{{searchValue}}</b></h2>
+          </div>
+          <div class="no-data" ng-if="!searchValue">
+            <h2>Search for something...</h2>
+          </div>
         </div>
 
       </section>

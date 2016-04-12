@@ -89,13 +89,14 @@ var CaniuseData = function(data){
 
     limit = limit !== undefined ? limit : Number.MAX_SAFE_INTEGER;
 
-    if(searchCache[q] && searchCache[q].length >= limit){
-      return searchCache[q].slice(0, limit);
-    }
-
     var found = [];
+    var results = [];
 
-    var results = this.index.search(q);
+    if(searchCache[q] && searchCache[q].length >= limit){
+      results = searchCache[q];
+    }else{
+      results = this.index.search(q);
+    }
 
     _.every(results, function(result){
       var feature = _this.features[result];
@@ -106,9 +107,13 @@ var CaniuseData = function(data){
       return true;
     });
 
-    searchCache[q] = found;
+    searchCache[q] = results;
 
-    return found;
+    return {
+      results : found,
+      total : results.length,
+      query : q
+    }
   };
 
   this.getSearchableObject = function(){

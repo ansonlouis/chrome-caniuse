@@ -113,11 +113,11 @@ a {
       text-decoration: underline; }
   .results .description {
     padding: 0px 10px 10px 10px;
-    color: #999;
+    color: #777;
     max-width: 600px; }
     .results .description code {
       font-family: Inconsolata, monospace;
-      background-color: #F3ECEC;
+      background-color: #F3EDED;
       padding: 0px 2px; }
 
 .support {
@@ -265,7 +265,7 @@ footer .credit {
 .settings:hover {
   opacity: .7; }
 
-#no-data {
+.no-data {
   width: 400px;
   padding: 10px;
   font-size: 14px;

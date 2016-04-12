@@ -65,6 +65,9 @@ header {
   box-shadow: 0px 2px 3px 0px #ccc;
   color: #FFF;
   font-size: 30px; }
+  header .header-search {
+    flex-grow: 1;
+    padding-left: 50px; }
   header input {
     height: 40px;
     font-size: 30px;
@@ -239,15 +242,15 @@ footer {
   padding: 0px 40px;
   color: #CCC; }
 
-#no-data {
+.no-data {
   font-weight: 700;
   text-align: center;
   width: 500px;
   margin: 200px auto;
   color: #AAA; }
-  #no-data h2 {
+  .no-data h2 {
     font-size: 30px; }
-  #no-data h4 {
+  .no-data h4 {
     font-size: 18px;
     padding-top: 20px; }
 
@@ -265,11 +268,11 @@ footer {
       text-decoration: underline; }
   .results .description {
     padding: 0px 10px 10px 10px;
-    color: #999;
+    color: #777;
     max-width: 600px; }
     .results .description code {
       font-family: Inconsolata, monospace;
-      background-color: #F3ECEC;
+      background-color: #F3EDED;
       padding: 0px 2px; }
 
 .support {
@@ -407,8 +410,10 @@ footer {
   display: flex;
   align-items: center;
   padding: 10px 10px 10px 25px; }
-  .local-details .last-update .date {
+  .local-details .date {
     color: #39b54a; }
+  .local-details.refreshing .date {
+    color: #CCC; }
   .local-details .refresh {
     margin-left: 5px; }
 
@@ -420,3 +425,10 @@ footer {
   height: 20px; }
   .refresh.refreshing {
     animation: rotate 500ms linear infinite; }
+
+.result-count {
+  text-align: right;
+  padding: 0px 10px 15px 10px;
+  font-size: 14px;
+  font-style: italic;
+  color: #999; }

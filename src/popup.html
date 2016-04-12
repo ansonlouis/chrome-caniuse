@@ -29,6 +29,10 @@
 
       <feature-support ng-if="result" feature-obj="result"></feature-support>
 
+      <div class="no-data" ng-if="noResults()">
+        No results found for <b>{{searchValue}}</b>
+      </div>
+
       <footer>
         <div class="credit">
           Powered By <a href="http://caniuse.com" target="_blank">caniuse.com</a>
@@ -38,9 +42,10 @@
         </div>
       </footer>
     </div>
-    <div id="no-data" ng-if="!settings.usable">
+    <div class="no-data" ng-if="!settings.usable">
       Something went wrong: You may not be connected to the internet and do not have the local storage feature set.
     </div>
+
   </div>
 
 </body>

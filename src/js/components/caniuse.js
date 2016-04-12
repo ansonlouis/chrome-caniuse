@@ -8,6 +8,7 @@ app.controller("caniuseController", ['$scope', '$http', 'caniuse', 'settings', f
   $scope.caniuse = caniuse;
   $scope.settings = null;
 
+  $scope.searchValue = "";
   $scope.resultActive = 0;
   $scope.hoveredStat = null;
   $scope.hoveredUsage = null;
@@ -18,15 +19,21 @@ app.controller("caniuseController", ['$scope', '$http', 'caniuse', 'settings', f
   });
 
   $scope.$on('feature-search-results', function(e, results){
-    console.log("results:", results);
-    if(results && results.length){
-      $scope.result = results[0];
-      $scope.$applyAsync();
+    $scope.searchValue = results.query;
+    $scope.result = null;
+    $scope.resultActive = 0;
+
+    if(results && results.results.length){
+      $scope.result = results.results[0];
     }
+
+    $scope.$applyAsync();
   });
 
   $scope.$on('feature-chosen', function(e, feature){
     $scope.result = feature;
+    $scope.resultActive = 0;
+    $scope.searchValue = "";
     $scope.$applyAsync();
   });
 
@@ -47,12 +54,6 @@ app.controller("caniuseController", ['$scope', '$http', 'caniuse', 'settings', f
         return idx == noteIdx;
       });
     }
-  };
-
-
-
-  $scope.hideResults = function(){
-    $scope.results = null;
   };
 
   $scope.getStatus = function(browserId){
@@ -96,5 +97,9 @@ app.controller("caniuseController", ['$scope', '$http', 'caniuse', 'settings', f
     return res;
 
   };
+
+  $scope.noResults = function(){
+    return $scope.searchValue && !$scope.result;
+  }
 
 }]);

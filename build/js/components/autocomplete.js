@@ -15,7 +15,8 @@ app.controller("autocompleteController", ['$scope', '$http', 'caniuse', 'setting
 
 
   $scope.$on('feature-search-results', function(e, results, value){
-    $scope.results = results;
+    $scope.results = results && results.results;
+    $scope.resultActive = 0;
   });
 
   $scope.navigate = function(e){

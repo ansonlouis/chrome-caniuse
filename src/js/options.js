@@ -51,17 +51,21 @@ app.controller("optionsController", ['$scope', '$http', 'caniuse', 'settings', f
   $scope.mode = "settings";
   $scope.refreshingLocalData = false;
   $scope.searchResults = null;
+  $scope.searchTotal = 0;
+  $scope.searchValue = "";
 
   $scope.$on('feature-search-results', function(e, results){
     $scope.mode = "search";
-    $scope.searchResults = null;
-    $scope.searchResults = results;
+    $scope.searchResults = results.results;
+    $scope.searchTotal = results.total;
+    $scope.searchValue = results.query;
     $scope.$applyAsync();
   });
 
   $scope.$on('feature-chosen', function(e, feature){
     $scope.mode = "search";
     $scope.searchResults = [feature];
+    $scope.searchTotal = 0;
     $scope.$applyAsync();
   });
 
@@ -99,6 +103,11 @@ app.controller("optionsController", ['$scope', '$http', 'caniuse', 'settings', f
   };
 
   $scope.refreshLocalData = function(){
+
+    if($scope.refreshingLocalData){
+      return;
+    }
+
     $scope.refreshingLocalData = true;
 
     var minTime = 1200; // rotate icon for two seconds minimum, even though request will probably take ~300ms
@@ -119,7 +128,9 @@ app.controller("optionsController", ['$scope', '$http', 'caniuse', 'settings', f
 
   };
 
-  console.log("here:", $scope.browsers);
+  $scope.noResults = function(){
+    return $scope.searchValue && (!$scope.searchResults || !$scope.searchResults.length);
+  }
 
 
 }]);
