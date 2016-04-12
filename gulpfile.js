@@ -25,8 +25,8 @@ gulp.task('sass', function(){
     .pipe(gulp.dest('build'));
 });
 
-gulp.task('clean-sass', function () {
-  return gulp.src('./styles', {read: false})
+gulp.task('clean-sass', function(){
+  return gulp.src('build/**/*.scss', {read: false})
     .pipe(clean());
 });
 
@@ -35,4 +35,4 @@ gulp.task('watch', function(){
 });
 
 
-gulp.task('default', gulp.series('clean-build', 'copy', 'sass'));
+gulp.task('default', gulp.series('clean-build', 'copy', 'sass', 'clean-sass'));
