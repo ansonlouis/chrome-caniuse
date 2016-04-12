@@ -3,6 +3,9 @@
 var CaniuseData = function(data){
 
   var _this = this;
+
+  var searchCache = {};
+
   this.data = null;
   this.browsers = null;
   this.features = null;
@@ -83,6 +86,13 @@ var CaniuseData = function(data){
 
 
   this.findFeature = function(q, limit){
+
+    limit = limit !== undefined ? limit : Number.MAX_SAFE_INTEGER;
+
+    if(searchCache[q] && searchCache[q].length >= limit){
+      return searchCache[q].slice(0, limit);
+    }
+
     var found = [];
 
     var results = this.index.search(q);
@@ -95,6 +105,8 @@ var CaniuseData = function(data){
       }
       return true;
     });
+
+    searchCache[q] = found;
 
     return found;
   };

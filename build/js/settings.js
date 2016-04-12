@@ -50,6 +50,7 @@ var settings = (function(){
   var public_methods = {
 
     usable : false,
+    isOnline : navigator.onLine,
 
     _defaults : _defaults,
 
@@ -161,16 +162,21 @@ var settings = (function(){
 
     saveDataLocally : function(){
 
+      var def = $.Deferred();
+
       if(!navigator.onLine){
         console.log("Not saving caniuse data locally. User is not connected to internet.");
-        return;
+        return def.reject("offline");
       }
 
       var updated = Date.now();
       _settings.lastUpdated = updated;
       chrome.storage.local.set({'caniuse': caniuse.full, 'updated': updated}, function(){
         console.log("saved caniuse data locally!");
+        def.resolve(updated);
       });
+
+      return def;
     },
 
     removeDataLocally : function(){

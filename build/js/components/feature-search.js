@@ -5,13 +5,13 @@ app.directive('featureSearch', function(){
     restrict : 'A',
     link: function($scope, el, attrs){
       var prevVal = null;
-      el.keyup(function(){
+      el.keyup(_.throttle(function(){
         var val = el.val().trim();
         if(val !== prevVal){
           prevVal = val;
           $scope.$emit('feature-search', val);
         }
-      });
+      }, 250));
     }
   };
 });

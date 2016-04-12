@@ -41,6 +41,12 @@ a {
 .transparent {
   opacity: 0; }
 
+@keyframes rotate {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }
+
 html, body {
   background-color: #f4f4f4; }
 
@@ -134,7 +140,7 @@ footer {
     width: 50%;
     flex-grow: 1; }
     .browser-settings ul.browser-list li {
-      padding: 10px 10px 10px 40px; }
+      padding: 10px; }
       .browser-settings ul.browser-list li:hover {
         background-color: #EEE; }
   .browser-settings .version-settings {
@@ -163,7 +169,7 @@ footer {
     .browser-settings ul.version-list.shadow-bottom.shadow-top {
       box-shadow: inset 0px -9px 7px -4px #ddd, inset 0px 9px 7px -4px #ddd; }
     .browser-settings ul.version-list li {
-      padding: 10px 10px 10px 40px; }
+      padding: 10px; }
   .browser-settings ul.browser-list, .browser-settings ul.version-list {
     position: relative;
     display: flex;
@@ -171,21 +177,31 @@ footer {
     flex-grow: 1;
     overflow: auto; }
     .browser-settings ul.browser-list li, .browser-settings ul.version-list li {
-      min-height: 36px;
+      display: flex;
+      align-items: center;
       position: relative;
+      min-height: 36px;
       cursor: default; }
       .browser-settings ul.browser-list li.disabled, .browser-settings ul.browser-list li.disabled:hover, .browser-settings ul.version-list li.disabled, .browser-settings ul.version-list li.disabled:hover {
         color: #CCC; }
       .browser-settings ul.browser-list li.active, .browser-settings ul.version-list li.active {
         background-color: #EEE; }
-      .browser-settings ul.browser-list li h3 .current, .browser-settings ul.version-list li h3 .current {
-        font-size: 12px; }
+      .browser-settings ul.browser-list li h3, .browser-settings ul.version-list li h3 {
+        padding: 0px 5px; }
+      .browser-settings ul.browser-list li .usage, .browser-settings ul.version-list li .usage {
+        padding-right: 5px; }
+      .browser-settings ul.browser-list li .current, .browser-settings ul.version-list li .current {
+        background-image: url(../../images/checkmark-green.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: left center;
+        font-size: 12px;
+        padding-left: 22px;
+        height: 18px;
+        display: inline-block; }
 
 .toggle {
-  position: absolute;
-  left: 10px;
-  top: 8px;
-  width: 20px;
+  min-width: 20px;
   height: 20px;
   background-image: url(../../images/checkbox.png);
   background-size: 40px 20px;
@@ -209,8 +225,10 @@ footer {
     padding: 20px; }
 
 .save-locally {
-  position: relative;
-  padding: 10px 10px 10px 40px; }
+  display: flex;
+  position: relative; }
+  .save-locally span {
+    padding-left: 5px; }
   .save-locally i {
     color: #aaa; }
 
@@ -385,7 +403,20 @@ footer {
   border-radius: 2px;
   margin-bottom: 10px; }
 
-.local-details .last-update {
-  padding: 10px; }
+.local-details {
+  display: flex;
+  align-items: center;
+  padding: 10px 10px 10px 25px; }
   .local-details .last-update .date {
     color: #39b54a; }
+  .local-details .refresh {
+    margin-left: 5px; }
+
+.refresh {
+  background-image: url(../../images/refresh.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px; }
+  .refresh.refreshing {
+    animation: rotate 500ms linear infinite; }

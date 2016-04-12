@@ -102,20 +102,24 @@ footer{
   font-size: 11px;
   padding:5px 0;
 }
+
+
+
 .browser-settings{
   width: 60%;
 
   .settings-block{
     display: flex;
   }
+
+
   ul.browser-list{
     border-right: 1px solid #CCC;
     width: 50%;
     flex-grow: 1;
 
-
     li{
-      padding: 10px 10px 10px 40px;
+      padding: 10px;
 
       &:hover{
         background-color:#EEE;
@@ -129,6 +133,7 @@ footer{
     flex-grow: 1;
     width: 50%;
   }
+
   ul.version-list{
     position:relative;
 
@@ -160,7 +165,7 @@ footer{
     }
 
     li{
-      padding: 10px 10px 10px 40px;
+      padding: 10px;
     }
   }
 
@@ -172,8 +177,10 @@ footer{
     overflow: auto;
 
     li{
-      min-height: 36px;
+      display: flex;
+      align-items:center;
       position:relative;
+      min-height: 36px;
       cursor: default;
 
       &.disabled, &.disabled:hover{
@@ -184,9 +191,20 @@ footer{
       }
 
       h3{
-        .current{
-          font-size: 12px;
-        }
+        padding: 0px 5px;
+      }
+      .usage{
+        padding-right: 5px;
+      }
+      .current{
+        background-image: url(../../images/checkmark-green.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: left center;
+        font-size: 12px;
+        padding-left: 22px;
+        height: 18px;
+        display: inline-block;
       }
     }
 
@@ -195,10 +213,7 @@ footer{
 }
 
 .toggle{
-  position: absolute;
-  left: 10px;
-  top: 8px;
-  width: 20px;
+  min-width: 20px; // width on flexbox was causing issues
   height: 20px;
   background-image: url(../../images/checkbox.png);
   background-size:40px 20px;
@@ -230,9 +245,12 @@ footer{
 }
 
 .save-locally{
+  display: flex;
   position:relative;
-  padding:10px 10px 10px 40px;
 
+  span{
+    padding-left: 5px;
+  }
   i{
     color: #aaa;
   }
@@ -278,12 +296,29 @@ footer{
 }
 
 .local-details{
+  display: flex;
+  align-items:center;
+  padding: 10px 10px 10px 25px;
 
   .last-update{
-    padding: 10px;
 
     .date{
       color: $supportedGreen;
     }
+  }
+  .refresh{
+    margin-left: 5px;
+  }
+}
+
+.refresh{
+  background-image:url(../../images/refresh.png);
+  background-size:contain;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+
+  &.refreshing{
+    animation: rotate 500ms linear infinite;
   }
 }

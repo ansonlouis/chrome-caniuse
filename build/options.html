@@ -40,9 +40,10 @@
             <h2>Browser Options <span class="user-note">- current version, plus the next/previous 2 versions will always show</span></h2>
             <div class="settings-block">
               <ul class="browser-list">
-                <li ng-repeat="(id, browser) in browsers track by $index" ng-class="{active : isActive(id)}" ng-click="makeActive(browser)">
+                <li ng-repeat="(id, browser) in browsers track by $index" ng-class="{active : isActive(id)}" ng-click="makeActive(browser)" class="browser-list-item">
                   <div class="toggle btn" ng-click="toggleBrowserState(id)" ng-class="{enabled : settings.browserIsActive(id)}"></div>
-                  <h3>{{browser.data.browser}} - <span class="usage">{{browser.getFullUsage()}}%</span></h3>
+                  <h3>{{browser.data.browser}}</h3>
+                  <span class="usage">{{browser.getFullUsage()}}%</span>
                 </li>
               </ul>
 
@@ -53,16 +54,17 @@
                 <ul ng-if="activeBrowser" class="version-list" ng-class="{inactive : !browserSettings || !browserSettings.active}" scroll-watch-ui>
                   <li
                   ng-repeat="(id, version) in activeBrowser.getVersions(true) | reverse track by $index"
-                  ng-class="{disabled : activeBrowser.versionIsGreen(version.version)}">
+                  ng-class="{disabled : activeBrowser.versionIsGreen(version.version)}"
+                  class="browser-list-item">
                     <div
                     class="toggle btn"
                     ng-click="toggleVersionState(activeBrowser.data.id, version.version)"
                     ng-class="{enabled : settings.versionIsExplicit(activeBrowser.data.id, version.version), disabled : activeBrowser.versionIsGreen(version.version)}"></div>
                     <h3>
-                      {{version.version}} -
-                      <span class="usage">{{version.global_usage.toFixed(2)}}%</span>
-                      <span class="current" ng-if="version.era == 0">current</span>
+                      {{version.version}}
                     </h3>
+                    <span class="usage">{{version.global_usage.toFixed(2)}}%</span>
+                    <span class="current" ng-if="version.era == 0"></span>
                   </li>
                 </ul>
               </div>
@@ -75,10 +77,11 @@
             <div class="settings-block">
               <div class="save-locally">
                 <div class="toggle btn" ng-click="toggleLocal()" ng-class="{enabled : settings.shouldSaveData()}"></div>
-                Save <i>Can I Use</i> data to my local web storage for offline use
+                <span>Save <i>Can I Use</i> data to my local web storage for offline use</span>
               </div>
               <div class="local-details" ng-if="settings.shouldSaveData()">
                 <div class="last-update">Last updated: <span class="date">{{settings.lastUpdated() | date:'MMM d, y h:mm a'}}</span></div>
+                <div class="refresh btn" ng-click="refreshLocalData()" ng-class="{refreshing : refreshingLocalData}"></div>
               </div>
             </div>
           </div>
