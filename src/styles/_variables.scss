@@ -1,6 +1,14 @@
 // _variables.scss
 
+// breakpoints
+$break-large:900px;
+$break-medium:630px;
+
+// colors
 $supportedGreen:#39b54a;
 $unsupportedRed:#c44230;
 $partialGreen:#889a00;
 $backgroundColor:#f2e8d5;
+$orange:#DB5600;
+
+$image-url:"../images";

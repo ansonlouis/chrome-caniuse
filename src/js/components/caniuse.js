@@ -2,7 +2,7 @@
 
 app.controller("caniuseController", ['$scope', '$http', 'caniuse', 'settings', function($scope, $http, caniuse, settings){
 
-
+  console.log("here");
   $scope.result = null;
   $scope.results = null;
   $scope.caniuse = caniuse;

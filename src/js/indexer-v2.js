@@ -12,7 +12,9 @@ Array.prototype.getUnique = function(){
    return a;
 };
 
-
+function escapeRegExp(str) {
+  return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+}
 
 function indexer(config){
 
@@ -23,6 +25,8 @@ function indexer(config){
   this.exclude = config.exclude || [];
   this.valueParsers = {};
   this.MAX_LEVELS = config.maxLevels !== undefined ? config.maxLevels : Number.MAX_SAFE_INTEGER;
+  this.scores = config.scores || null;
+
 
   this.isExcluded = function(key){
     return this.exclude.indexOf(key) > -1;
@@ -75,8 +79,11 @@ function indexer(config){
                 if(!index[token][item.id]){
                   index[token][item.id] = 0;
                 }
-
-                index[token][item.id]++;
+                if(this.scores && this.scores[k]){
+                  index[token][item.id] += this.scores[k];
+                }else{
+                  index[token][item.id]++;
+                }
               }
             }, this);
           }
@@ -95,12 +102,19 @@ function indexer(config){
   };
 
 
+  this.getQueryRegex = function(word){
+    return new RegExp('^' + word, 'i');
+  };
+
+
   this.search = function(query){
 
     var split = query.split(/\s/g);
     var results = [];
     var fullMatches = {};
     var found = false;
+
+    var indexToSearch = index;
 
     _.each(split, function(word, count){
 
@@ -110,36 +124,47 @@ function indexer(config){
       }
       var wordMatches = {};
 
-      _.each(index, function(indexItem, key){
-        if(key.search(new RegExp('^' + word, 'i')) > -1){
-          _.each(indexItem, function(score, key){
+       _.each(indexToSearch, function(indexItem, indexKey){
+
+        var wordRegex = this.getQueryRegex(word);
+
+        var matched = indexKey.search(wordRegex) > -1;
+
+        if(matched){
+          _.each(indexItem, function(score, matchId){
 
             // if were not on the first search word, dont bother
             // as all words should match
-            if(count > 0 && !fullMatches[key]){ return; }
+            if(count > 0 && !fullMatches[matchId]){ return; }
 
-            if(!wordMatches[key]){
-              wordMatches[key] = 0;
+            if(!wordMatches[matchId]){
+              wordMatches[matchId] = 0;
             }
-            wordMatches[key] += score;
+            wordMatches[matchId] += score;
           }, this);
         }
-      }, this);
 
-      fullMatches = _.mapObject(wordMatches, function(word, score){
-        if(fullMatches[word]){
-          return score + fullMatches[word];
+        return matched;
+
+      }, this);
+      // END INDEX LOOP
+
+      var temp = {};
+       _.each(wordMatches, function(score, word){
+        if(count > 0 && !fullMatches[word]){
+          return false;
         }
-        return score;
+        temp[word] = wordMatches[word] + (fullMatches[word] || 0);
+        return true;
       });
+      fullMatches = temp;
 
     }, this);
-
+    // END QUERY WORD LOOP
 
     results = Object.keys(fullMatches).sort(function(a,b){
-      return fullMatches[a] - fullMatches[b];
+      return fullMatches[b] - fullMatches[a];
     });
-
     return results;
   };
 

@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="CaniuseOptions">
 <head>
-  <base href="/build/"/>
+  <base href="/"/>
   <meta charset="UTF-8">
   <title>Caniuse Options</title>
 
-  <link href="http://fonts.googleapis.com/css?family=Inconsolata|Open+Sans:300,700" rel="stylesheet">
   <link rel="stylesheet" href="styles/options.css">
 
+  <!-- build:jsLibs js/libs.js -->
   <script src="../node_modules/jquery/dist/jquery.min.js"></script>
   <script src="../node_modules/angular/angular.min.js"></script>
   <script src="../node_modules/underscore/underscore-min.js"></script>
+  <!-- endbuild -->
 
+  <!-- build:js js/options.js -->
   <script src="js/options.js"></script>
   <script src="js/filters.js"></script>
   <script src="js/components/feature-support.js"></script>
   <script src="js/components/feature-search.js"></script>
   <script src="js/components/rich-text.js"></script>
+  <script src="js/components/tab-link.js"></script>
+  <!-- endbuild -->
 
 </head>
 <body class="options-page">
@@ -25,8 +29,8 @@
     <div class="flex-content" ng-if="settings.usable">
 
       <header>
-        <div class="header-search">
-          <span>Can I Use</span>
+        <div class="header-search centerer">
+          <span class="text-left">Can I Use</span>
           <input type="text" class="search" ng-keydown="setMode('search')" ng-focus="setMode('search')" feature-search />
           <span>?</span>
         </div>
@@ -109,11 +113,10 @@
     </div>
 
     <!-- show when the caniuse data could not be found -->
-    <div id="no-data" class="flex-content" ng-if="!settings.usable">
+    <div class="no-data" class="flex-content" ng-if="!settings.usable">
       <h2>Something went wrong!</h2>
       <h4>
-        It looks like you don't have internet connectivity and you have not enabled
-        the offline storage feature.
+        Make sure you are connected to the internet and try reloading this chrome extension at <a href="chrome://extensions/" tab-link>chrome://extensions/</a>.
       </h4>
     </div>
 

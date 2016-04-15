@@ -24,7 +24,7 @@
 
     &.active{
       background-color: #EEE;
-      background-image: url(../../images/arrow-right.png);
+      background-image: imagePath('/arrow-right.png');
       background-size: 16px;
       background-position: 5px center;
       background-repeat: no-repeat;

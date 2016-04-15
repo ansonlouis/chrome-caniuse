@@ -78,22 +78,3 @@ settings.get().done(function(){
 });
 
 
-// // make sure settings and browser data is retrieved first
-// $.when(settings.get(), retrieveData()).done(function(sets, data){
-
-//   if(data){
-//     caniuse = new CaniuseData(data);
-//   }else if(sets.shouldSaveData()){
-//     sets.getData().done(function(data){
-//       caniuse = new CaniuseData(data);
-//     });
-//   }
-
-//   if(sets.shouldSaveData()){
-//     set.saveDataLocally();
-//   }
-
-// });
-
-
-

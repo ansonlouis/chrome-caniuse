@@ -117,9 +117,7 @@ app.controller("optionsController", ['$scope', '$http', 'caniuse', 'settings', f
       settings.saveDataLocally()
         .done(function(){
           var dur = performance.now() - start;
-          console.log("running for:", minTime - dur);
           setTimeout(function(){
-            console.log("done");
             $scope.refreshingLocalData = false;
             $scope.$applyAsync();
           }, minTime - dur);

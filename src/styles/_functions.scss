@@ -1,0 +1,37 @@
+// _functions.scss
+
+@function imagePath($url){
+  @return url( $image-url + $url );
+}
+
+
+@mixin screen-is-large{
+  @media screen and (min-width: $break-large + 1){
+    @content;
+  }
+}
+// Medium screens only, anything between our small and large breakpoints
+@mixin screen-is-medium{
+  @media screen and (max-width: $break-large) and (min-width: $break-medium + 1){
+    @content;
+  }
+}
+// Small screens only, anything smaller than $break-medium
+// NOTE: this INCLUDES extra small size screens
+@mixin screen-is-small{
+  @media screen and (max-width: $break-medium){
+    @content;
+  }
+}
+// everything larger than small (medium size and greater)
+@mixin screen-is-not-small{
+  @media screen and (min-width: $break-medium + 1){
+    @content;
+  }
+}
+// everything smaller than large (medium size and smaller)
+@mixin screen-is-not-large{
+  @media screen and (max-width: $break-large){
+    @content;
+  }
+}

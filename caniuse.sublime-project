@@ -3,12 +3,12 @@
     {
       "path": "./",
       "folder_exclude_patterns": [
-        "build",
+        // "build",
         "node_modules"
       ],
       // "folder_exclude_patterns": [],
       "file_exclude_patterns": [
-        "​caniuse.sublime-workspace"
+        "*.sublime-workspace"
       ]
     }
   ]

@@ -126,7 +126,10 @@ var CaniuseData = function(data){
     var featureData = this.getSearchableObject();
     this.index = new indexer({
       obj : featureData,
-      fields : ['title', 'description', 'id']
+      fields : ['title', 'description', 'id'],
+      scores : {
+        title : 2
+      }
     });
   };
 

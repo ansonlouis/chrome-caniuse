@@ -4,20 +4,11 @@
   <meta charset="UTF-8">
   <title>Can I Use?</title>
 
-  <link href="http://fonts.googleapis.com/css?family=Inconsolata|Open+Sans:300,700" rel="stylesheet">
   <link rel="stylesheet" href="styles/popup.css">
 
-  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
-  <script src="../node_modules/angular/angular.min.js"></script>
-  <script src="../node_modules/underscore/underscore-min.js"></script>
+  <script src="js/libs.js"></script>
 
   <script src="js/popup.js"></script>
-  <script src="js/filters.js"></script>
-  <script src="js/components/caniuse.js"></script>
-  <script src="js/components/feature-support.js"></script>
-  <script src="js/components/feature-search.js"></script>
-  <script src="js/components/autocomplete.js"></script>
-  <script src="js/components/rich-text.js"></script>
 
 </head>
 <body>
@@ -38,12 +29,12 @@
           Powered By <a href="http://caniuse.com" target="_blank">caniuse.com</a>
         </div>
         <div class="controls">
-          <a class="settings" href="/build/options.html" target="_blank"></a>
+          <a class="settings" href="/options.html" target="_blank"></a>
         </div>
       </footer>
     </div>
     <div class="no-data" ng-if="!settings.usable">
-      Something went wrong: You may not be connected to the internet and do not have the local storage feature set.
+      Something went wrong: Make sure you are connected to the internet and try reloading this chrome extension at <a href="chrome://extensions" tab-link>chrome://extensions/</a>.
     </div>
 
   </div>

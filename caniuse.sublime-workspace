@@ -4,16 +4,68 @@
 		"selected_items":
 		[
 			[
-				"token",
-				"tokenize"
+				"cleb",
+				"cleanBuild"
 			],
 			[
-				"sup",
-				"support"
+				"autocom",
+				"autocomplete"
+			],
+			[
+				"on",
+				"onLine"
+			],
+			[
+				"shb",
+				"shadowBottom"
+			],
+			[
+				"shob",
+				"shadow-bottom"
+			],
+			[
+				"shto",
+				"shadowTop"
+			],
+			[
+				"shab",
+				"shadowBottom"
+			],
+			[
+				"abs",
+				"absolute"
+			],
+			[
+				"res",
+				"resolve"
+			],
+			[
+				"ver",
+				"version"
+			],
+			[
+				"ve",
+				"version"
 			],
 			[
 				"bro",
+				"browser-list"
+			],
+			[
+				"br",
 				"browser"
+			],
+			[
+				"sup",
+				"supportedGreen"
+			],
+			[
+				"resu",
+				"result"
+			],
+			[
+				"token",
+				"tokenize"
 			],
 			[
 				"brc",
@@ -204,10 +256,6 @@
 				"greetingpulseClick"
 			],
 			[
-				"abs",
-				"absolute"
-			],
-			[
 				"storein",
 				"storeInfo"
 			],
@@ -376,10 +424,6 @@
 				"saveToLocalStorage"
 			],
 			[
-				"res",
-				"resultLength"
-			],
-			[
 				"shouluo",
 				"shouldUseOverlayFlow"
 			],
@@ -470,55 +514,27 @@
 			[
 				"attributen",
 				"attribute_name"
-			],
-			[
-				"edit",
-				"edit-tax-shipping"
-			],
-			[
-				"selc",
-				"selector"
-			],
-			[
-				"thyn",
-				"thankYouNoteAlreadySent"
-			],
-			[
-				"pt",
-				"padding-top"
-			],
-			[
-				"rede",
-				"redeem-header"
-			],
-			[
-				"adre",
-				"address"
-			],
-			[
-				"pb",
-				"padding-bottom"
-			],
-			[
-				"stao",
-				"stateOptions"
-			],
-			[
-				"rou",
-				"Router"
-			],
-			[
-				"sendn",
-				"senderName"
-			],
-			[
-				"sto",
-				"StoreAdapter"
 			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"file": "caniuse.sublime-project",
+			"settings":
+			{
+				"buffer_size": 252,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "gulpfile.js",
+			"settings":
+			{
+				"buffer_size": 2271,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -624,7 +640,45 @@
 	},
 	"file_history":
 	[
+		"/Users/ansonairoldi/Personal/caniuse/src/js/entry/background.js",
+		"/Users/ansonairoldi/Personal/caniuse/webpack.config.js",
+		"/Users/ansonairoldi/Personal/caniuse/src/background.html",
+		"/Users/ansonairoldi/Personal/caniuse/build/options.html",
+		"/Users/ansonairoldi/Personal/caniuse/build/popup.html",
+		"/Users/ansonairoldi/Personal/caniuse/caniuse.sublime-project",
+		"/Users/ansonairoldi/Personal/caniuse/src/options.html",
+		"/Users/ansonairoldi/Personal/caniuse/src/popup.html",
+		"/Users/ansonairoldi/Personal/caniuse/gulpfile.js",
+		"/Users/ansonairoldi/Personal/caniuse/src/manifest.json",
+		"/Users/ansonairoldi/Personal/caniuse/src/styles/_functions.scss",
+		"/Users/ansonairoldi/Personal/caniuse/src/styles/options.scss",
 		"/Users/ansonairoldi/Personal/caniuse/manifest.json",
+		"/Users/ansonairoldi/Personal/caniuse/src/styles/_variables.scss",
+		"/Users/ansonairoldi/Personal/caniuse/src/styles/popup.scss",
+		"/Users/ansonairoldi/Personal/caniuse/src/styles/_global.scss",
+		"/Users/ansonairoldi/Personal/caniuse/src/styles/_autocomplete.scss",
+		"/Users/ansonairoldi/Personal/caniuse/src/styles/_font-open-sans.scss",
+		"/Users/ansonairoldi/Personal/caniuse/src/js/caniuse.js",
+		"/Users/ansonairoldi/Personal/caniuse/src/js/indexer-v2.js",
+		"/Users/ansonairoldi/Personal/caniuse/src/js/options.js",
+		"/Users/ansonairoldi/Personal/caniuse/src/styles/_feature-support.scss",
+		"/Users/ansonairoldi/Personal/caniuse/src/js/settings.js",
+		"/Users/ansonairoldi/Personal/caniuse/src/js/components/feature-search.js",
+		"/Users/ansonairoldi/Personal/caniuse/src/js/stop-words.js",
+		"/Users/ansonairoldi/Personal/caniuse/src/js/components/autocomplete.js",
+		"/Users/ansonairoldi/Personal/caniuse/src/js/components/caniuse.js",
+		"/Users/ansonairoldi/Personal/caniuse/src/js/browser.js",
+		"/Users/ansonairoldi/Personal/caniuse/src/js/components/feature-support.js",
+		"/Users/ansonairoldi/Personal/caniuse/src/js/filters.js",
+		"/Users/ansonairoldi/Personal/caniuse/src/templates/feature-support.html",
+		"/Users/ansonairoldi/Personal/caniuse/src/js/components/rich-text.js",
+		"/Users/ansonairoldi/Personal/caniuse/src/js/background.js",
+		"/Users/ansonairoldi/Personal/caniuse/src/styles/_notes.scss",
+		"/Users/ansonairoldi/Personal/caniuse/src/js/popup.js",
+		"/Users/ansonairoldi/Personal/caniuse/src/templates/autocomplete.html",
+		"/Users/ansonairoldi/Personal/caniuse/src/js/feature.js",
+		"/Users/ansonairoldi/Personal/caniuse/src/styles/_browser.scss",
+		"/Users/ansonairoldi/Personal/caniuse/package.json",
 		"/Users/ansonairoldi/Personal/caniuse/feature.js",
 		"/Users/ansonairoldi/Personal/caniuse/background.html",
 		"/Users/ansonairoldi/Personal/caniuse/browser.js",
@@ -637,7 +691,6 @@
 		"/Users/ansonairoldi/Personal/caniuse/api notes",
 		"/Users/ansonairoldi/Personal/caniuse/inject.js",
 		"/Users/ansonairoldi/Personal/caniuse/scrape.js",
-		"/Users/ansonairoldi/Personal/caniuse/caniuse.sublime-project",
 		"/Users/ansonairoldi/Personal/caniuse/caniuse-sublime-project",
 		"/Users/ansonairoldi/workspace/loop-bee/web-app/frontend/internal/templates/onepage/bread-crumbs.html",
 		"/Users/ansonairoldi/workspace/loop-bee/web-app/frontend/internal/assets/css/onepage/_bread-crumbs.scss",
@@ -714,44 +767,7 @@
 		"/Users/ansonairoldi/workspace/loop-bee/web-app/frontend/tests/tests/all.js",
 		"/Users/ansonairoldi/workspace/loop-bee/web-app/frontend/tests/results.txt",
 		"/Users/ansonairoldi/workspace/loop-bee/web-app/frontend/tests/suites/accept/onepage.js",
-		"/Users/ansonairoldi/workspace/loop-bee/web-app/frontend/internal/templates/onepage/billing-info.html",
-		"/Users/ansonairoldi/workspace/loop-bee/web-app/frontend/internal/src/views/onepage/billing-info.js",
-		"/Users/ansonairoldi/workspace/loop-bee/web-app/frontend/internal/src/models/coupon.js",
-		"/Users/ansonairoldi/workspace/loop-bee/web-app/frontend/internal/src/app/claim-gift/app.js",
-		"/Users/ansonairoldi/workspace/loop-bee/web-app/frontend/internal/src/views/onepage/claim/network-exchange.js",
-		"/Users/ansonairoldi/workspace/loop-bee/web-app/frontend/internal/assets/css/onepage/claim/_network-exchange.scss",
-		"/Users/ansonairoldi/workspace/loop-bee/web-app/frontend/internal/templates/onepage/claim/network-exchange.html",
-		"/Users/ansonairoldi/workspace/loop-bee/web-app/frontend/internal/templates/onepage/claim/thank-you.html",
-		"/Users/ansonairoldi/workspace/loop-bee/web-app/frontend/internal/templates/onepage/claim/remaining-balance.html",
-		"/Users/ansonairoldi/workspace/loop-bee/web-app/frontend/internal/templates/onepage/claim/gift-card-suggest.html",
-		"/Users/ansonairoldi/workspace/loop-bee/web-app/frontend/internal/templates/onepage/claim/exchange-gift-card-code.html",
-		"/Users/ansonairoldi/workspace/loop-bee/web-app/frontend/internal/templates/claim-gift/remaining-balance.html",
-		"/Users/ansonairoldi/workspace/loop-bee/web-app/frontend/internal/templates/claim-gift/gift-card-suggest.html",
-		"/Users/ansonairoldi/workspace/loop-bee/web-app/frontend/internal/templates/claim-gift/exchange-gift-card-code.html",
-		"/Users/ansonairoldi/workspace/loop-bee/web-app/frontend/internal/src/data/temp/special-tiles-7.json",
-		"/Users/ansonairoldi/workspace/loop-bee/web-app/frontend/internal/templates/onepage/claim/exchange-thank-you.html",
-		"/Users/ansonairoldi/workspace/loop-bee/web-app/frontend/internal/templates/onepage/claim/exchange-confirm.html",
-		"/Users/ansonairoldi/workspace/loop-bee/web-app/frontend/internal/src/views/claim/exchange/gift-card.js",
-		"/Users/ansonairoldi/workspace/loop-bee/web-app/frontend/internal/assets/css/onepage/claim/_generic.scss",
-		"/Users/ansonairoldi/workspace/loop-bee/web-app/frontend/lib/raphael.js",
-		"/Users/ansonairoldi/workspace/loop-bee/web-app/frontend/internal/circle.html",
-		"/Users/ansonairoldi/workspace/loop-bee/web-app/frontend/internal/templates/onepage/send/status-tracker.html",
-		"/Users/ansonairoldi/workspace/loop-bee/web-app/frontend/internal/src/views/onepage/send/status-tracker.js",
-		"/Users/ansonairoldi/workspace/loop-bee/web-app/frontend/internal/assets/css/onepage/send/_status-tracker.scss",
-		"/Users/ansonairoldi/workspace/loop-bee/web-app/frontend/internal/src/loop/utils.js",
-		"/Users/ansonairoldi/workspace/loop-bee/web-app/frontend/internal/src/views/onepage/panel-view.js",
-		"/Users/ansonairoldi/workspace/loop-bee/web-app/frontend/internal/assets/css/onepage/send/_sender-gift-box.scss",
-		"/Users/ansonairoldi/workspace/loop-bee/web-app/frontend/internal/src/views/onepage/send/sender-gift-box.js",
-		"/Users/ansonairoldi/workspace/loop-bee/web-app/frontend/internal/src/views/onepage/shop/panel-view.js",
-		"/Users/ansonairoldi/workspace/loop-bee/web-app/frontend/internal/assets/css/onepage/_gift-box.scss",
-		"/Users/ansonairoldi/workspace/loop-bee/web-app/frontend/internal/templates/onepage/gift-box.html",
-		"/Users/ansonairoldi/workspace/loop-bee/web-app/frontend/internal/assets/css/onepage/_forms.scss",
-		"/Users/ansonairoldi/workspace/loop-bee/web-app/frontend/internal/src/loop/spinner.js",
-		"/Users/ansonairoldi/workspace/loop-bee/web-app/frontend/internal/src/routers/onepage/preview-router.js",
-		"/Users/ansonairoldi/workspace/loop-bee/web-app/frontend/tests/suites/send/legacy-magento.js",
-		"/Users/ansonairoldi/workspace/loop-bee/web-app/frontend/tests/suites/accept/legacy-full.js",
-		"/Users/ansonairoldi/workspace/loop-bee/web-app/frontend/tests/suites/send/base.js",
-		"/Users/ansonairoldi/workspace/loop-bee/web-app/frontend/tests/stores/neimanmarcus/model.js"
+		"/Users/ansonairoldi/workspace/loop-bee/web-app/frontend/internal/templates/onepage/billing-info.html"
 	],
 	"find":
 	{
@@ -759,7 +775,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 93.0,
 		"where_history":
 		[
 			"",
@@ -836,6 +852,37 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"build/",
+			"900",
+			"url(",
+			".transp",
+			"transp",
+			"new index",
+			"saveDataLocally",
+			"current",
+			"removeDataLocally",
+			"lastup",
+			"settings-b",
+			"getusa",
+			"getglobalstats",
+			"toggle\"",
+			"translate",
+			"app.filt",
+			"orderbye",
+			"isLocallySaving",
+			"settings-block",
+			"generic-settings",
+			"hovered",
+			"getversions(",
+			"glob",
+			"isNotableBrowser",
+			"version-op",
+			"browser-set",
+			"versionIsActive",
+			"versionIsExplicit",
+			"active",
+			"settings",
+			"supportg",
 			"search",
 			"flexconte",
 			"#middle",
@@ -932,38 +979,7 @@
 			"initfull",
 			"coupon:applied",
 			"clearNotApplied",
-			"enteredCoupon",
-			"models",
-			"coupon",
-			"ProductsCollection",
-			"coupon",
-			"applied",
-			"shipping-estimation:re",
-			":applied",
-			"applied",
-			"coup",
-			";\n",
-			"input-placeholder",
-			"input-placeholder{",
-			"can i send gifts on",
-			"allow-pr",
-			"utils.stopp",
-			"filter-nav",
-			"#fff",
-			"dropdown",
-			"logo",
-			"fixed",
-			"stick",
-			"fullstory",
-			"scroll",
-			"'search",
-			"scrollToTop",
-			"scroll",
-			"product-tile-wrap",
-			"padding-t",
-			"opaci",
-			"\"search\"",
-			"'search'"
+			"enteredCoupon"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -990,6 +1006,62 @@
 		{
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "caniuse.sublime-project",
+					"settings":
+					{
+						"buffer_size": 252,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								96,
+								96
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "gulpfile.js",
+					"settings":
+					{
+						"buffer_size": 2271,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2267,
+								2267
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 811.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -1034,6 +1106,50 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"indev",
+				"src/js/indexer-v2.js"
+			],
+			[
+				"popsc",
+				"src/styles/popup.scss"
+			],
+			[
+				"_var",
+				"src/styles/_variables.scss"
+			],
+			[
+				"poph",
+				"src/popup.html"
+			],
+			[
+				"set",
+				"src/js/settings.js"
+			],
+			[
+				"optio",
+				"src/styles/options.scss"
+			],
+			[
+				"optht",
+				"src/options.html"
+			],
+			[
+				"optiojs",
+				"src/js/options.js"
+			],
+			[
+				"brojs",
+				"src/js/browser.js"
+			],
+			[
+				"_gl",
+				"src/styles/_global.scss"
+			],
+			[
+				"glo",
+				"src/styles/_global.scss"
+			],
 			[
 				"breac",
 				"internal/templates/onepage/bread-crumbs.html"
@@ -1501,50 +1617,6 @@
 			[
 				"testsall",
 				"tests/tests/all.js"
-			],
-			[
-				"backo",
-				"tests/backoffice/base.js"
-			],
-			[
-				"tests/run",
-				"tests/run.js"
-			],
-			[
-				"testsoneov",
-				"tests/suites/send/onepage-overlay.js"
-			],
-			[
-				"coave",
-				"adapters/store/coach/version.json"
-			],
-			[
-				"coaex",
-				"adapters/store/coach/coach-external.js"
-			],
-			[
-				"coachin",
-				"adapters/store/coach/coach-internal.js"
-			],
-			[
-				"coachsu",
-				"adapters/store/coach/app/internal/content/support-faqs.html"
-			],
-			[
-				"coachsup",
-				"adapters/store/coach/app/internal/content/support-faqs.html"
-			],
-			[
-				"_bil",
-				"internal/assets/css/onepage/_billing.scss"
-			],
-			[
-				"billh",
-				"internal/templates/onepage/billing-info.html"
-			],
-			[
-				"baserou",
-				"internal/src/loop/onepage-base-router.js"
 			]
 		],
 		"width": 0.0

@@ -2,6 +2,7 @@
 
 String.prototype.richText = function(){
   var str = this.toString();
+  str = str.replace(/</g, '&lt;').replace(/>/g, '&gt;');
   return str.replace(/(`(.+?)`)+/gi, function(match, p1, p2){
       return "<code>" + p2 + "</code>";
   });

@@ -1,6 +1,7 @@
 // options.scss
-
+@import 'font-open-sans';
 @import 'variables';
+@import 'functions';
 @import 'global';
 
 html, body{
@@ -19,12 +20,14 @@ header{
   flex-direction: row;
   text-align: center;
   padding: 8px;
-  background-color: #DB5600;
+  background-color: $orange;
   box-shadow: 0px 2px 3px 0px #ccc;
   color: #FFF;
   font-size: 30px;
 
   .header-search{
+    display: flex;
+    justify-content: center;
     flex-grow: 1;
     padding-left:50px;
   }
@@ -32,7 +35,8 @@ header{
     height: 40px;
     font-size: 30px;
     color: #FFF;
-    width: 500px;
+    max-width: 500px;
+    flex-grow: 1;
     border:0;
     border-bottom: 2px solid #FFF;
     outline: none;
@@ -41,17 +45,46 @@ header{
   }
 
   .settings-btn{
-    background-image:url(../../images/settings-white.png);
+    background-image:imagePath('/settings-white.png');
     background-size:contain;
     width: 30px;
     height: 30px;
     margin: 6px 10px 0px;
+
+    &:hover.transparent{
+      opacity: 0;
+      cursor: default;
+
+      &:after{
+        content: '';
+        position:absolute;
+        top:0px;
+        left:0px;
+        right:0px;
+        bottom:0px;
+        z-index: 1;
+      }
+    }
+  }
+
+  @include screen-is-small{
+    .text-left{
+      display: none;
+    }
   }
 }
 
 .centerer{
-  width: 900px;
+  width: $break-large;
   margin: auto;
+
+  @include screen-is-medium{
+    width: $break-medium;
+  }
+  @include screen-is-small{
+    width: 100%;
+  }
+
 }
 
 section#middle{
@@ -80,11 +113,24 @@ footer{
 
 .settings{
   display: flex;
+
+  @include screen-is-not-large{
+    flex-direction: column;
+  }
 }
 .settings-group{
   width: 50%;
   flex-grow:1;
   padding: 10px;
+
+  @include screen-is-not-large{
+    &.browser-settings, &.generic-settings{
+      width: 100%;
+    }
+    &.generic-settings{
+      order: -1; // puts generic on top
+    }
+  }
 }
 .settings-block{
   margin: 8px 0;
@@ -94,6 +140,10 @@ footer{
   word-wrap: break-word;
   max-height: 550px;
   min-height: 300px;
+
+  @include screen-is-not-large{
+    min-height: 0;
+  }
 }
 
 .usage{
@@ -201,7 +251,7 @@ footer{
         padding-right: 5px;
       }
       .current{
-        background-image: url(../../images/checkmark-green.png);
+        background-image: imagePath('/checkmark-green.png');
         background-size: contain;
         background-repeat: no-repeat;
         background-position: left center;
@@ -219,7 +269,7 @@ footer{
 .toggle{
   min-width: 20px; // width on flexbox was causing issues
   height: 20px;
-  background-image: url(../../images/checkbox.png);
+  background-image: imagePath('/checkbox.png');
   background-size:40px 20px;
   background-repeat: no-repeat;
   opacity: 0.5;
@@ -318,7 +368,7 @@ footer{
 }
 
 .refresh{
-  background-image:url(../../images/refresh.png);
+  background-image:imagePath('/refresh.png');
   background-size:contain;
   background-repeat: no-repeat;
   width: 20px;
