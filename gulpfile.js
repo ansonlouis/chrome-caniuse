@@ -4,7 +4,6 @@
 
 var gulp = require('gulp');
 var sass = require('gulp-sass');
-var flatten = require('gulp-flatten');
 var clean = require('gulp-clean');
 var usemin = require('gulp-usemin');
 var uglify = require('gulp-uglify');

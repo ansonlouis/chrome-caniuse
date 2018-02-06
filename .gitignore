@@ -1,2 +1,5 @@
 build
 node_modules
+caniuse.sublime-workspace
+.DS_Store
+/src/.DS_Store

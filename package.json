@@ -4,7 +4,17 @@
   "description": "",
   "main": "background.js",
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "del": "^2.2.2",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-clean": "^0.3.2",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^2.1.2",
+    "gulp-usemin": "^0.3.28",
+    "gulp-webpack": "^1.5.0",
+    "gulp-zip": "^4.0.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
