@@ -1,4 +1,12 @@
-<input type="text" placeholder="Can I use...?" ng-keydown="navigate($event)" ng-keyup="activate($event)" feature-search />
+<input
+  type="text"
+  placeholder="Can I use...?"
+  ng-keydown="navigate($event)"
+  ng-keyup="activate($event)"
+  feature-search
+  auto-focus
+  tabindex="1"
+/>
 <div id="search-results" ng-if="results && results.length > 1">
   <ul>
     <li ng-repeat="item in results track by $index" ng-class="{active : $index == resultActive}" ng-click="chooseResult($index, true)">
